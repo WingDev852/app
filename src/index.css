@@ -1,0 +1,164 @@
+/* Design System & Base Variables - Premium Update */
+:root {
+  /* HSL Color Palette - "Mindful Pro" */
+  --hue-primary: 160;
+  /* Sage/Mint */
+  --hue-secondary: 215;
+  /* Deep Slate Blue */
+  --hue-accent: 35;
+  /* Warm Sand */
+
+  --color-bg: 210 20% 98%;
+  --color-surface: 0 0% 100%;
+  --color-surface-active: 210 20% 96%;
+
+  --color-primary: var(--hue-primary) 45% 40%;
+  --color-primary-light: var(--hue-primary) 60% 92%;
+
+  --color-secondary: var(--hue-secondary) 30% 50%;
+  --color-secondary-light: var(--hue-secondary) 40% 94%;
+
+  --text-main: 215 30% 15%;
+  --text-muted: 215 15% 50%;
+  --text-light: 215 15% 70%;
+
+  /* Shadows - Layered for depth */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+
+  /* Radius */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --radius-full: 9999px;
+
+  /* Typography */
+  --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  --transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: 215 25% 10%;
+    --color-surface: 215 25% 14%;
+    --color-surface-active: 215 25% 18%;
+
+    --color-primary: 160 30% 60%;
+    --color-primary-light: 160 20% 20%;
+
+    --color-secondary: 215 30% 65%;
+    --color-secondary-light: 215 25% 20%;
+
+    --text-main: 215 10% 95%;
+    --text-muted: 215 10% 65%;
+    --text-light: 215 10% 45%;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-main);
+  background: hsl(var(--color-bg));
+  color: hsl(var(--text-main));
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+#root {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: hsl(var(--color-surface));
+  /* Card-like on desktop */
+}
+
+@media (min-width: 500px) {
+  #root {
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+    min-height: 95vh;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    border-radius: 40px;
+    overflow: hidden;
+  }
+
+  body {
+    background: #eef2f5;
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: hsl(var(--text-main));
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+/* Reusable Components */
+.card {
+  background: hsl(var(--color-surface));
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 1.5rem;
+  transition: var(--transition);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.card:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: hsl(var(--color-primary));
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: var(--transition);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.01em;
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation Utility */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-enter {
+  animation: fadeIn 0.4s ease-out forwards;
+}
