@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useUser } from '../context/UserContext';
 import { X, Crown, Trash2, User, Bell, Volume2, Moon, ChevronRight } from 'lucide-react';
 
